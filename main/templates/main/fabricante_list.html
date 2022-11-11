@@ -1,0 +1,43 @@
+{% include 'parte/head.html'%}
+
+<body>
+    {% include 'parte/menu.html'%}
+    <div>
+        <h1 align = 'center'>Empresas Cadastradas</h1>
+    </div>
+    <div>
+        <form method="get">
+            
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome do Fabricante </th>
+                    <th>Ações </th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                {% for Fabricante in object_list %}
+                <tr>
+                    <td>
+                        <button>
+                            <a href="{% url 'detalhes_do_fabricante' Fabricante.pk%} ">{{Fabricante.fabricante}}</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button>
+                            <a href="{% url 'alterar_fabricante' Fabricante.pk%} ">alterar</a>
+                        </button>
+                        <button>
+                            <a href="{% url 'apagar_fabricante' Fabricante.pk%} ">apagar</a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

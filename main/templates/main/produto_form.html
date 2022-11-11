@@ -1,0 +1,14 @@
+{% include 'parte/head.html'%}
+
+<body>
+    {% include 'parte/menu.html'%}
+    <div>
+        <h1 align = 'center'>Cadastrar Produto</h1>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="Cadastrar"></input>
+    </form>
+</body>
+</html>

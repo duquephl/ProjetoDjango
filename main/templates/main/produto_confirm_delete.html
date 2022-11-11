@@ -1,0 +1,10 @@
+{% include 'parte/head.html'%}
+{% include 'parte/menu.html'%}
+<div align='center'>
+    <form method="post">
+        {% csrf_token %}
+        <p>Deseja apagar o "{{ object.nome_produto }}"?</p>
+        <input type="submit" value = "Confirmar">
+        <button><a href='/produtos'>Voltar</a></button>
+    </form>
+</div>

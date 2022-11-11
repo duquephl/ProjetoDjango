@@ -1,0 +1,41 @@
+{% include 'parte/head.html'%}
+
+<body>
+    {% include 'parte/menu.html'%}
+    <div>
+        <h1 align = 'center'>Produtos Cadastrados</h1>
+    </div>
+    <table  class="table">
+        <thead>
+            <tr>
+                <th>Nome do Produto </th>
+                <th>Fabricante </th>
+                <th>Opções </th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            {% for Produto in object_list %}
+            <tr>
+                <td>
+                    <button>
+                        <a href="{% url 'detalhes_do_produto' Produto.pk%}">{{Produto.nome_produto}}</a>
+                    </button>
+                </td>
+                <td>
+                    {{Produto.fabricante}}
+                </td>
+                <td>
+                    <button>
+                        <a href="{% url 'alterar_produto' Produto.pk%} ">alterar</a>
+                    </button>
+                    <button>
+                        <a href="{% url 'apagar_produto' Produto.pk%} ">apagar</a>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% include 'parte/head.html'%}
+
+<body>
+    {% include 'parte/menu.html'%}
+    <div>
+        <h1 align = 'center'>Sobre o Fabricante {{ object.fabricante }}</h1>
+    </div>
+    </br>
+    <img src="{{object.imagem_logo.url }}" alt="Logo do Fabricante"><br/>
+    </br>
+    Nome do fabricante: {{ object.fabricante }} <br/>
+    <br/>
+    {{object.sobre}}
+</body>
+</html>

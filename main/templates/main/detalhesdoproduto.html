@@ -1,0 +1,20 @@
+{% include 'parte/head.html'%}
+
+<body>
+    {% include 'parte/menu.html'%}
+    <div>
+        <h1 align = 'center'>Sobre o produto {{ object.nome_produto }}</h1>
+    </div>
+    
+    </br>
+        <img src="{{object.imagem_produto.url }}" alt="Imagem do Produto"><br/>
+    </br>
+        Nome do produto: {{ object.nome_produto }} <br/>
+        Fabricante: {{ object.fabricante }} <br/>
+        Codigo de Barra: {{object.codigo_de_barra}}<br/>
+        Preço: {{ object.preco }} <br/>
+        Gramatura: {{ object.gramatura }} <br/>
+    <br/>
+        {{object.sobre}}
+</body>
+</html>
