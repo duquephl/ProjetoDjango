@@ -7,17 +7,18 @@ from .views import HomeView, SobreView, ContatoView, ProdutoView, ProdutoCreateV
     ProdutoDeleteView, ProdutoDetailView, FabricanteView, FabricanteCreateView, FabricanteUpdateView, \
     FabricanteDeleteView, FabricanteDetailView, LoginView, LogoutView, PerfilView
 from rest_framework.routers import DefaultRouter
-from main.api.viewsets import ProdutoViewSet, FabricanteViewSet #GroupViewSet
+from main.api.viewsets import ProdutoViewSet, FabricanteViewSet, GroupViewSet, UserViewSet, AgreementViewSet
 
 router = DefaultRouter()
 router.register(r'produtos', ProdutoViewSet, basename='Produto')
 router.register(r'fabricantes', FabricanteViewSet, basename='Fabricante')
-# router.register(r'users', UserViewSet, basename='User')
-# router.register(r'groups', GroupViewSet, basename='Group')
+router.register(r'users', UserViewSet, basename='User')
+router.register(r'groups', GroupViewSet, basename='Group')
+router.register(r'agreements', AgreementViewSet, basename='Agreement')
 
 urlpatterns = [
-    # path('', include(router.urls)),
-    # path('api-auth/', include('rest_framework.urls')),
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls')),
     path('', login_required(HomeView.as_view()), name='home'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', login_required(LogoutView.as_view()), name='logout'),

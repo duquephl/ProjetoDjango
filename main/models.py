@@ -8,6 +8,8 @@ from pathlib import Path
 from django.core.files.storage import FileSystemStorage
 from django import forms
 from operator import mod
+
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
@@ -80,7 +82,7 @@ class Agreement(models.Model):
 
     name = models.CharField(max_length=256)
     dir = models.CharField(max_length=256, default='agreements/')
-    file = models.FileField(upload_to=rename_file)
+    file = models.FileField(upload_to=rename_file, validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
     about = models.TextField()
 
     def __str__(self) -> str:
