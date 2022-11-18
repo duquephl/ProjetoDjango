@@ -41,6 +41,20 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(auto_now=True)
+    rua = models.CharField(max_length=100, blank=True)
+    numero = models.CharField(max_length=10, blank=True)
+    bairro = models.CharField(max_length=100, blank=True)
+    cidade = models.CharField(max_length=100, blank=True)
+    estado = models.CharField(max_length=100, blank=True)
+    pais = models.CharField(max_length=100, blank=True)
+    cep = models.CharField(max_length=100, blank=True)
+    telefone = models.CharField(max_length=100, null=False, blank=False, unique=True)
+    celular = models.CharField(max_length=100, null=False, blank=False, unique=True)
+    cpf = models.CharField(max_length=100, null=False, blank=False, unique=True)
+    rg = models.CharField(max_length=100, null=False, blank=False, unique=True)
+    data_nascimento = models.DateField(null=False, blank=False)
+
     objects = UserManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
