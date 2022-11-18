@@ -54,14 +54,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
     'allauth.socialaccount.providers.google',
-
-    # 'corsheaders',
-    # 'djoser',
-    # 'social_django',
-    # 'rest_framework_simplejwt',
-    # 'rest_framework_simplejwt.token_blacklist',
-
     #
     'main',
     'accounts',
