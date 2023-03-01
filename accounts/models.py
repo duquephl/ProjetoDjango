@@ -53,7 +53,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     celular = models.CharField(max_length=100, null=False, blank=False, unique=True)
     cpf = models.CharField(max_length=100, null=False, blank=False, unique=True)
     rg = models.CharField(max_length=100, null=False, blank=False, unique=True)
-    data_nascimento = models.DateField(null=False, blank=False)
+    #data_nascimento = models.DateField(null=False, blank=True)
 
     objects = UserManager()
     USERNAME_FIELD = 'email'

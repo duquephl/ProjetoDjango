@@ -24,7 +24,7 @@ class Fabricante(models.Model):
         ordering = ['fabricante']
 
     fabricante = models.CharField(max_length=100)
-    imagem_logo = models.ImageField(upload_to='images/fabricantes/')
+    imagem_logo = models.ImageField(upload_to='images/fabricantes/', blank=True, null=True)
     sobre = models.TextField()
 
     def __str__(self) -> str:
@@ -42,7 +42,7 @@ class Produto(models.Model):
     codigo_de_barra = models.PositiveBigIntegerField()
     preco = models.FloatField()
     gramatura = models.FloatField()
-    imagem_produto = models.ImageField(upload_to='images/produtos/')
+    imagem_produto = models.ImageField(upload_to='images/produtos/', blank=True, null=True)
     sobre = models.TextField()
 
     def __str__(self) -> str:
